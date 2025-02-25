@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Product } from './components/Product';
+import { products } from './components/data/products';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    //const [count, setCount] = useState(0);
+    // return <h1>Hi</h1>;
+    // return React.createElement('h1', {}, 'Hello From JS');
+    return (
+        <div className="container  px-4 p-3">
+            <Product product={products[0]} />
+        </div>
+    );
 }
 
 export default App;
