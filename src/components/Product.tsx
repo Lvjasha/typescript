@@ -34,6 +34,7 @@ export function Product({ product }: ProductProps) {
                             // type={btnType}
                             onClick={() => setDetails((prev) => !prev)}
                         >
+                            прювет
                             {details ? 'Hide Details' : 'Show Details'}
                         </Button>
                     </Flex>
