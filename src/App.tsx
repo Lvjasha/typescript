@@ -7,7 +7,8 @@ function App() {
     // return React.createElement('h1', {}, 'Hello From JS');
     return (
         <div className="container  px-4 p-3">
-            <Product product={products} />
+            <Product product={products[0]} />
+            <Product product={products[1]} />
         </div>
     );
 }
