@@ -1,14 +1,17 @@
+import { ErrorMessage } from './components/ErrorMessage';
+import { Loader } from './components/Loader';
 import { Product } from './components/Product';
-import { products } from './components/data/products';
+import { useProducts } from './hooks/products';
 
 function App() {
-    //const [count, setCount] = useState(0);
-    // return <h1>Hi</h1>;
-    // return React.createElement('h1', {}, 'Hello From JS');
+    const { loading, error, products } = useProducts();
     return (
         <div className="container  px-4 p-3">
-            <Product product={products[0]} />
-            <Product product={products[1]} />
+            {loading && <Loader />}
+            {error && <ErrorMessage error={error} />}
+            {products.map((product) => (
+                <Product product={product} key={product.id} />
+            ))}
         </div>
     );
 }
