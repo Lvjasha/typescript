@@ -8,7 +8,7 @@ interface ProductProps {
 
 export function Product({ product }: ProductProps) {
     const [details, setDetails] = useState(false);
-    // const btnType = details ? 'primary' : '';
+    const btnType = details ? 'primary' : 'default';
     return (
         <div className="container">
             <div className="row border p-2 mb-3 rounded flex flex-col text-center bg-light">
@@ -31,10 +31,9 @@ export function Product({ product }: ProductProps) {
                 <div className="col-md-3 my-auto justify-content-center">
                     <Flex gap="small" wrap>
                         <Button
-                            // type={btnType}
+                            type={btnType}
                             onClick={() => setDetails((prev) => !prev)}
                         >
-                            прювет
                             {details ? 'Hide Details' : 'Show Details'}
                         </Button>
                     </Flex>

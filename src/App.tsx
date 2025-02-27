@@ -1,3 +1,4 @@
+import ModalWindow from './components/ModalWindow';
 import { ErrorMessage } from './components/ErrorMessage';
 import { Loader } from './components/Loader';
 import { Product } from './components/Product';
@@ -12,6 +13,7 @@ function App() {
             {products.map((product) => (
                 <Product product={product} key={product.id} />
             ))}
+            <ModalWindow />
         </div>
     );
 }
