@@ -1,7 +1,7 @@
 import './Modal.module.css';
 import { Button, Modal } from 'antd';
 import { useState, useContext } from 'react';
-import ModalProps from './Product';
+// import ModalProps from './Product';
 // import CreateProduct from './CreateProduct';
 import { ModalContext } from '../conext/ModalContext';
 

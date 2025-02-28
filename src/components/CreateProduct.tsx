@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ErrorMessage } from './ErrorMessage';
 
 const productData: IProduct = {
+    id: 555,
     title: '',
     price: 0.1,
     description: 'string',
