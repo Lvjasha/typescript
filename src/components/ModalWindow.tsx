@@ -1,8 +1,9 @@
 import './Modal.module.css';
 import { Button, Modal } from 'antd';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import ModalProps from './Product';
 // import CreateProduct from './CreateProduct';
+import { ModalContext } from '../conext/ModalContext';
 
 interface ModalProps {
     children: React.ReactNode;
@@ -12,30 +13,15 @@ interface ModalProps {
 
 function ModalWindow({ children, title, onClose }: ModalProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { modal, open, close } = useContext(ModalContext);
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
     return (
         <>
             <div className="" onClick={onClose}>
-                <Button type="primary" onClick={setModal(true)}>
+                <Button type="primary" onClick={open}>
                     Open Modal
                 </Button>
-                <Modal
-                    title="Basic Modal"
-                    open={isModalOpen}
-                    onOk={handleOk}
-                    onCancel={handleCancel}
-                >
+                <Modal title="Basic Modal" onOk={close}>
                     <h1>{title}</h1>
                     {children}
                 </Modal>

@@ -4,15 +4,16 @@ import { ErrorMessage } from './components/ErrorMessage';
 import { Loader } from './components/Loader';
 import { Product } from './components/Product';
 import { useProducts } from './hooks/products';
-import { useState } from 'react';
+import { useContext } from 'react';
 import { IProduct } from './models';
+import { ModalContext } from './conext/ModalContext';
 
 function App() {
     const { loading, error, products, addProduct } = useProducts();
-    const [modal, setModal] = useState(false);
+    const { modal, open, close } = useContext(ModalContext);
 
     const createHandler = (product: IProduct) => {
-        setModal(false);
+        close();
         addProduct(product);
     };
 
@@ -25,10 +26,7 @@ function App() {
             ))}
 
             {modal && (
-                <ModalWindow
-                    title="Create new product"
-                    onClose={() => setModal(false)}
-                >
+                <ModalWindow title="Create new product" onClose={close}>
                     <CreateProduct onCreate={createHandler} />
                 </ModalWindow>
             )}
